@@ -9,7 +9,7 @@ version: "2"
 services:
   qbittorrent:
     image: linuxserver/qbittorrent:latest
-    container_name: qbittorrent
+    container_name: qbittorrent1
     environment:
       - PUID=1033
       - PGID=100
@@ -27,7 +27,7 @@ services:
 
   jackett:
     image: linuxserver/jackett:latest
-    container_name: jackett
+    container_name: jackett1
     environment:
       - PUID=1033
       - PGID=100
@@ -42,7 +42,7 @@ services:
 
   radarr:
     image: linuxserver/radarr:latest
-    container_name: radarr
+    container_name: radarr1
     environment:
       - PUID=1029
       - PGID=100
@@ -57,7 +57,7 @@ services:
 
   sonarr:
     image: linuxserver/sonarr:latest
-    container_name: sonarr
+    container_name: sonarr1
     environment:
       - PUID=1029
       - PGID=100
@@ -72,7 +72,7 @@ services:
 
   minidlna:
     image: vladgh/minidlna
-    container_name: minidlna
+    container_name: minidlna1
     environment:
       - PUID=1029
       - PGID=100
@@ -87,3 +87,17 @@ services:
     network_mode: "host"
 
 
+  bitwarden:
+    image: vaultwarden/server:latest
+    container_name: bitwarden1
+    environment:
+      - PUID=1029
+      - PGID=100
+      - TZ=Europe/Minsk
+    volumes:
+      - /volume1/docker/bitwarden:/data
+    ports:
+      - 3012:3012
+      - 5151:80      
+    restart: unless-stopped
+    network_mode: "bridge"
