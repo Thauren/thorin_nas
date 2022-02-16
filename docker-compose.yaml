@@ -1,7 +1,7 @@
 ## clean docker
 # sudo docker system prune -a  
 ## install new versions
-# cd /volume1/docker
+# cd ~/thorin_nas
 # sudo docker-compose up -d
 
 ---
